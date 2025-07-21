@@ -29,17 +29,10 @@ jobs:
         make -C micropython/ports/esp32 submodules
         make -C micropython/ports/esp32 BOARD=ESP32_GENERIC V=1
 
-    - name: Diagnóstico: listar todo en micropython/ports/esp32
+    - name: Diagnóstico listar todo en micropython/ports/esp32
       run: ls -R micropython/ports/esp32 || echo "No se pudo listar el directorio de build."
 
     - name: Subir firmware compilado (si existe)
-      uses: actions/upload-artifact@v4
-      with:
-        name: esp32-firmware
-        path: micropython/ports/esp32/build/*.bin
-
-
-    - name: Subir firmware compilado
       uses: actions/upload-artifact@v4
       with:
         name: esp32-firmware
